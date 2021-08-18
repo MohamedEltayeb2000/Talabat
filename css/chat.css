@@ -1,0 +1,319 @@
+		*{
+			box-sizing: border-box;
+			margin: 0;
+		}
+
+		body{
+			overflow-x: hidden;
+		}
+
+		a{
+			text-decoration: none;
+		}
+		
+		/* ################# container that contain all the html */
+		.full-height{
+			height: 100vh;/* vh unit to measure the height   */
+		}
+
+		/* ################# recent chat field  */
+		.recent-chats{
+			background-color: #fff;
+			padding: 0;
+		}
+
+		/* ############ header of recent chat field   */
+		.recent-chat-header{
+			height: 10vh;
+			text-align: center;
+			vertical-align: middle;
+		}
+		
+		.recent-chat-header h2{
+			padding-top: 10px;
+			color: #000;
+			width: 80%;
+			padding: auto;
+		}
+
+
+		/* ####### recent chats list container  */
+		.recent-chat-field{
+			height: 84vh;
+			overflow-y: auto;
+			margin: 0 auto;
+			padding: 0;
+		}
+
+		/* object in recent chat list  */
+		.recent-chat-container{
+			cursor: pointer;
+			margin-top: 0;
+		}
+
+		.recent-chat-container:hover, .recent-chat-container:active{
+			background-color: #000;
+			color: #fff;
+		}
+
+		.recent-chat-field .media{
+			margin: 0 auto;
+			padding: 1.5rem;
+		}
+
+		.media a img{
+			width: 50px;
+			height: 50px;
+			border-radius: 25px;
+			position: relative;
+		}
+		.media-body{
+			position: sticky;
+			margin-left: 10px;
+			margin-bottom: 2px;
+			text-overflow: ellipsis;
+			width: 150px;
+			display: inline-flex;
+			overflow: hidden;
+		}
+		.meda-heading{
+			font-size: 1.45rem;
+		}
+		/* End of Friend field */
+
+		/* #################  right side field (chat + text area)  */
+
+		/* ################# header of chat field  */
+		.media .media-body{
+			width: fit-content;
+		}
+		.message-header{
+			height: 10vh;
+		}
+		.message-header .media{
+			padding-top: 1%;
+		}
+		.back-btn{
+			border-style: none;
+			color: #000;
+			background-color: #fff;
+			cursor: pointer;
+			vertical-align: middle;
+			font-size: 30px;
+			line-height: 1;
+			outline: none;
+			outline-style: none;
+			outline-color: initial;
+			outline-width: initial;
+			padding-top: 6px;
+			padding-right: 4px;
+			padding-left: 4px;
+		}
+		.message-header .media {
+			padding-bottom: 10px;
+			
+		}
+
+		#chat_field_header{
+			padding-top: 10px;
+			display: inline-block;
+			margin-left: 10px;
+		}
+		#chat_field_header h4{
+			position: relative;
+			top: 6px;
+		}
+
+		/* ################# chat field(All chats)  */
+		.chat-field{
+			margin-top: 10px;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			width: 100%;
+			height: 75vh;
+			background: #fff;
+			display: flex;
+			flex-direction: column-reverse;
+		}
+
+		/* ############ message sperator by date  */
+		.date-seprator{
+			display: grid;
+			grid-template-columns: 100%;
+			justify-content: center; 
+		}
+
+		.date-seprator h4{
+			text-align: center;
+			position: relative;
+			display: inline-grid;
+			font-size: 18px;
+			color: #d4d4d4;
+		}
+
+		.date-seprator h4:before{
+			content: "";
+			display: inline-block;
+			height: 1.5px;
+			background: #c1c1c1;
+			width: 25%;
+			position: absolute;
+			left: 0;
+			top: 50%;
+		}
+
+		.date-seprator h4:after{
+			content: "";
+			display: inline-block;
+			height: 1.5px;
+			background: #c1c1c1;
+			width: 25%;
+			position: absolute;
+			right: 0;
+			top: 50%;
+		}
+
+		/* ############  message object  */
+		.message-content{
+			display: grid;
+		}
+
+		/* ###### user view of his own message   */
+		.you{
+			justify-content: end;
+			display: grid;
+			grid-template-columns: 70%;
+			word-wrap: break-word;
+
+		}
+		.you .message-content{
+			justify-items: end;
+		}
+		.you .message-text{
+			border-radius: 20px 20px 0 20px;
+			background: #000;
+			color: #fff;
+			padding: 10px;
+			margin: 5px;
+			word-break: break-all;
+
+		}
+
+		/* ##### user view of others' message   */
+		.other{
+			display: grid;
+			grid-template-columns: 70%;
+			justify-content: start;
+			justify-items: start;
+		}
+		.other .message-content{
+			grid-template-columns: 48px 1fr;
+			grid-column-gap: -5px;
+		}
+		.other img{
+			width: 45px;
+			height: 45px;
+			border-radius: 100%;
+		}
+		.other a{
+			grid-row: span 2;
+		}
+		.other .message-text{
+			background: #a6b4b2;
+			padding: 10px;
+			margin: 5px;
+			border-radius: 20px 20px 20px 0;
+			word-break: break-all;
+		}
+		/* # time of message   */
+		.message-time{
+			font-size: 12px;
+			color: #777;
+		}
+
+		/* # server message   */
+		.order-message{
+			background-color: #1b9bff;
+			color: white;
+			text-align: center;
+		}
+		.order-message h4{
+			font-size: 20px;
+		}
+		.order-message hr{
+			color: black;
+			opacity: 100%;
+			height: 1vh;
+		}
+
+		.rating-message{
+			background-color: #1c1c1c;
+			color: white;
+			text-align: center;
+		}
+		.rating-message h4{
+			font-size: 20px;
+		}
+		.rating-message label input{
+			padding-left: 10px;
+		}
+		.rating-message button{
+			width: 100px;
+			background: #1c1c1c;
+			color: white;
+			border: none;
+			padding: 4px 6px;
+			margin-left: 5px;
+		}
+
+		.rating-message button:hover{
+			width: 100px;
+			background: #1b9bff;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			padding: 4px 6px;
+			margin-left: 5px;
+		}
+
+		/* ############  text field + send button  */
+		.text-field{
+			padding-top: 10px;
+			height: 8vh;
+		}
+
+		/* #####  text area  */
+		#message{
+			width: 85%;
+			height: 3vh;
+			resize: none;
+			text-indent: 10px;
+			overflow-y: auto;
+			outline: none;
+			border-style: none;
+			text-indent: 0px;
+			position: relative;
+			margin-right: 10px;
+			float: left;
+			line-height: 20px;
+		}
+		/* #####  send button  */
+		#send{
+			border: 0;
+			display: inline;
+			float: left;
+			vertical-align: middle;
+			border-style: none;
+			background-color: #fff;
+			color: #000;
+			position: relative;
+			cursor: pointer;
+			margin-left: 5px;
+			width: 40px;
+			outline: none;
+			font-weight: bolder;
+		}
+
+		::-webkit-scrollbar {
+			display: none;
+		}
