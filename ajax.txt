@@ -1,0 +1,20 @@
+var xhr = new XMLHttpRequest();
+
+//open xml HTTP request, specify file you want, false (syncr or async)
+xhr.open("POST", "file.php", false);
+//if you want to send variable throw post
+xhr.setRequestHeader("Content-type","Application/x-www-form-urlencoded");
+
+//after request sent and response was sent from the php file
+xhr.onload = function(){
+	//check if response is not null
+	if(xhr.response != ""){
+		//response found in xhr.responseText
+		response = xhr.responseText;
+	}
+}
+//parameters to send (optional) ==> can get data of a specific food card at a time (prefered)
+//like url after ?
+var parms = "foodid=" + variable here;
+//send request
+xhr.send(parms);

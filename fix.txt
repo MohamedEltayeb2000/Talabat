@@ -1,0 +1,65 @@
+file : chefs page.html
+replace if function in line 413 with
+if(isset($_SESSION["userInfo"]["data"]["id"])){
+                         if($id == $_SESSION["userInfo"]["data"]["id"]){
+                            $isDisabled = "disabled";
+                          }
+                        }
+
+
+file : chefs page.html
+line should be 230
+put code tag php before end of ">"
+<?php if(isset($_SESSION["userInfo"])){if($_SESSION["userInfo"]["data"]["id"] == $_GET["id"]){echo "disabled";}} ?>
+
+
+
+file Cart.php
+line: script tag after printing food in cards of Cart page
+var qunant = document.getElementsByClassName("quantitiy");
+              var plus_btns = document.getElementsByClassName("plus");
+              var minus_btns = document.getElementsByClassName("minus");
+              for (var i = plus_btns.length - 1; i >= 0; i--) {
+                plus_btns[i].addEventListener("mouseup", updatePricePlus);
+                minus_btns[i].addEventListener("mouseup", updatePriceMinus);
+                qunant[i].addEventListener("change", onEnterQuantity);
+              }
+              function updatePricePlus(){
+                let quantitiy = parseInt(document.getElementsByName(this.id)[0].value);
+                let price = parseFloat(document.getElementsByClassName("price")[this.id].innerHTML.split('$')[0]);
+                let new_price = (quantitiy + 1) * price;
+                let old_total = parseFloat(document.getElementById("sum").innerHTML.split('$')[0]);
+                let total = old_total - price * quantitiy + new_price;
+                document.getElementById("sum").innerHTML = Number(Math.round(total + "e" + 2) + "e-" +2) + "$";
+              }
+
+              function updatePriceMinus(){
+                let quantitiy = parseInt(document.getElementsByName(this.id)[0].value);
+                if(quantitiy-1 > 0){
+                  let price = parseFloat(document.getElementsByClassName("price")[this.id].innerHTML.split('$')[0]);
+                  let new_price = (quantitiy - 1) * price;
+                  let old_total = parseFloat(document.getElementById("sum").innerHTML.split('$')[0]);
+                  let total = old_total - price * quantitiy + new_price;
+                  document.getElementById("sum").innerHTML = Number(Math.round(total + "e" + 2) + "e-" +2) + "$";
+                }
+              }
+              function onEnterQuantity(e){
+                let quantitiy = parseInt(this.value);
+                if(quantitiy > 0){
+                  let price = parseFloat(document.getElementsByClassName("price")[this.id].innerHTML.split('$')[0]);
+                  let new_price = quantitiy * price;
+                  let old_total = parseFloat(document.getElementById("sum").innerHTML.split('$')[0]);
+
+                  let total = 0;
+                  let qauntities = document.getElementsByClassName("quantitiy");
+
+                  for (var i = qauntities.length - 1; i >= 0; i--) {
+                    if(qauntities[i] != this){
+                      total = parseFloat(document.getElementsByClassName("price")[qauntities[i].id].innerHTML.split('$')[0]) * parseInt(qauntities[i].value);
+                    }
+                  }
+
+                  total =  total + new_price;
+                  document.getElementById("sum").innerHTML = Number(Math.round(total + "e" + 2) + "e-" +2) + "$";
+                }
+              }
